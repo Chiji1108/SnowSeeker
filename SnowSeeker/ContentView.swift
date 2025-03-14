@@ -7,15 +7,18 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationSplitView(preferredCompactColumn: .constant(.detail)) {
+            NavigationLink("Primary") {
+                Text("New view")
+            }
+        } detail: {
+            Text("Content")
+                .navigationTitle("Content View")
         }
-        .padding()
+        .navigationSplitViewStyle(.balanced)
     }
 }
 
